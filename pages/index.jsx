@@ -12,7 +12,7 @@ import '../styles/Home.module.css';
 // eslint-disable-next-line no-unused-vars
 import { css, keyframes } from '@emotion/react';
 
-import Catch from './catch';
+import Catch from '../components/sections/catchSection';
 
 const Home = ({ data }) => {
   return (

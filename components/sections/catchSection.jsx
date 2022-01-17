@@ -44,7 +44,7 @@ const Catch = ({ data }) => {
   const [isSuccesCatch, setIsSuccesCatch] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
-  const { state, dispatch } = useAppContext();
+  const { state } = useAppContext();
 
   useEffect(() => {
     setCurrentPokemonDisplay(listPokeMonCatch[0]);
