@@ -1,0 +1,13 @@
+@font-face {
+    font-family: 'PKMN RBYGSC';
+    src: url('PKMN-RBYGSC.eot');
+    src: local('PKMN RBYGSC Regular'), local('PKMN-RBYGSC'),
+        url('PKMN-RBYGSC.eot?#iefix') format('embedded-opentype'),
+        url('PKMN-RBYGSC.woff2') format('woff2'),
+        url('PKMN-RBYGSC.woff') format('woff'),
+        url('PKMN-RBYGSC.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+

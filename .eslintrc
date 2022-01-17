@@ -1,0 +1,12 @@
+{
+    "extends": ["next/babel","next/core-web-vitals","prettier","plugin:react/recommended", "airbnb"],
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
+        "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {}
+}

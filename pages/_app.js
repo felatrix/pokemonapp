@@ -1,7 +1,20 @@
-import '../styles/globals.css'
+import React from 'react';
+import '../styles/globals.css';
+import '../styles/fonts/stylesheet.css';
+import { ApolloProvider } from '@apollo/client';
+import client from '../utils/graphql/apollo-client';
+import Layout from '../components/layout/layout';
+import { AppWrapper } from '../contexts/AppContext';
 
+// eslint-disable-next-line react/prop-types
 function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+  return <ApolloProvider client={client}>
+    <AppWrapper>
+      <Layout>
+        <Component {...pageProps} />
+      </Layout>
+    </AppWrapper>
+    </ApolloProvider>
 }
 
-export default MyApp
+export default MyApp;
