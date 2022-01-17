@@ -43,6 +43,7 @@ const Catch = ({ data }) => {
   const [catchSceneShow, setCatchSceneShow] = useState(false);
   const [isSuccesCatch, setIsSuccesCatch] = useState(false);
 
+  // eslint-disable-next-line no-unused-vars
   const { state, dispatch } = useAppContext();
 
   useEffect(() => {

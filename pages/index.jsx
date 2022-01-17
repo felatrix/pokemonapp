@@ -13,13 +13,8 @@ import '../styles/Home.module.css';
 import { css, keyframes } from '@emotion/react';
 
 import Catch from './catch';
-import { useAppContext } from '../contexts/AppContext';
 
 const Home = ({ data }) => {
-  const { state, dispatch } = useAppContext();
-  // dispatch({ type: 'add_number', value: 3 });
-  console.log('🚀 ~ file: index.jsx ~ line 19 ~ Home ~ value', state);
-
   return (
     <div>
       <Head>

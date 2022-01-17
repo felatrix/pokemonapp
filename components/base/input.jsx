@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line no-unused-vars
