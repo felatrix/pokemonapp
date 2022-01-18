@@ -41,6 +41,7 @@ const Footer = () => {
     justifyContent: 'start',
     height: '100%',
     alignItems: 'center',
+    cursor: 'pointer',
     width: '80px',
     '& p': css({
       margin: '0',

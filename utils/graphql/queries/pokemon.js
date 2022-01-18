@@ -22,6 +22,10 @@ query pokemon($name: String!) {
     pokemon(name: $name) {
       id
       name
+      height
+      weight
+      status
+      message
       sprites {
         front_default
       }
@@ -35,6 +39,26 @@ query pokemon($name: String!) {
           name
         }
       }
+      stats {
+        effort
+        base_stat
+        stat {
+          name 
+          url
+        }
+      }
+      abilities {
+        slot
+        is_hidden
+        ability {
+          name
+          url
+        }
+      }
+      species{
+        name
+      }
+      message
     }
   }
 `;

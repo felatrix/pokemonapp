@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 import React from 'react';
 /** @jsxImportSource @emotion/react */
 // eslint-disable-next-line no-unused-vars
@@ -29,9 +30,15 @@ const Navbar = () => {
         <>
           <FcPrevious size={40} />
         </>
-        <Image styleCss={{ height: '100%' }} url={'./images/navbar-logo.png'} />
+        <Image
+          styleCss={{ height: '100%' }}
+          url={`${process.env.PUBLIC_URL}/images/navbar-logo.png`}
+        />
         <div>
-          <Image styleCss={{ height: '40px' }} url={'./images/pokeball.png'} />
+          <Image
+            styleCss={{ height: '40px' }}
+            url={`${process.env.PUBLIC_URL}/images/pokeball.png`}
+          />
         </div>
       </div>
     </div>

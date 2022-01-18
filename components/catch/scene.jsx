@@ -7,6 +7,7 @@ import { css, keyframes } from '@emotion/react';
 import Image from '../base/image';
 import Button from '../base/button';
 import Input from '../base/input';
+import ValidationTip from './validationTip';
 
 import { useAppContext } from '../../contexts/AppContext';
 
@@ -58,10 +59,6 @@ const CatchScene = ({
     });
   }, [nickName]);
 
-  const tooltipText = {
-    fontSize: '10px',
-  };
-
   const setNickNameHandler = () => {
     const searchByName = state.pokemon.filter(
       (item) => item.name === currentPokemon.name
@@ -85,7 +82,7 @@ const CatchScene = ({
       css={{
         width: '100vw',
         height: '100vh',
-        backgroundColor: 'black',
+        backgroundColor: 'white',
         position: 'fixed',
         top: '0',
         left: '-8px',
@@ -116,11 +113,11 @@ const CatchScene = ({
           {!delayBall ? (
             <>
               <Image
-                url={currentPokemon?.image}
+                url={currentPokemon?.sprites.front_default}
                 styleCss={{ width: '250px' }}
               />
               <Image
-                url={'./images/pokeball.gif'}
+                url={`${process.env.PUBLIC_URL}/images/pokeball.gif`}
                 styleCss={{
                   width: '350px',
                   animation: `${bounceAnimation} 2s ease`,
@@ -140,7 +137,7 @@ const CatchScene = ({
                     <h5>You did it !! Check your collections</h5>
                   )}
                   <Image
-                    url={currentPokemon?.image}
+                    url={currentPokemon?.sprites.front_default}
                     styleCss={{ height: '250px' }}
                   />
                   <p>{currentPokemon?.name}</p>
@@ -177,20 +174,28 @@ const CatchScene = ({
                   >
                     Give your catch a nickname
                   </h5>
-                  <Input
-                    value={nickName}
-                    onChange={(value) => setNickName(value)}
-                    onKeyUp={() => setShowValidationTip(true)}
-                    onKeyDown={() => setShowValidationTip(false)}
-                    style={{
-                      marginBottom: '10px',
+                  <div
+                    css={{
                       width: '100%',
-                      '&::focus + div': css({
-                        visibility: 'visible',
-                        opacity: 1,
-                      }),
                     }}
-                  />
+                  >
+                    <ValidationTip show={showValidationTip} data={validation} />
+                    <Input
+                      value={nickName}
+                      onChange={(value) => setNickName(value)}
+                      onKeyUp={() => setShowValidationTip(true)}
+                      onKeyDown={() => setShowValidationTip(false)}
+                      style={{
+                        marginBottom: '10px',
+                        width: '100%',
+                        '&::focus + div': css({
+                          visibility: 'visible',
+                          opacity: 1,
+                        }),
+                      }}
+                    />
+                  </div>
+
                   {validation.maxChar &&
                   validation.minChar &&
                   validation.noSpace ? (
@@ -204,66 +209,6 @@ const CatchScene = ({
                   ) : (
                     ''
                   )}
-                  <div
-                    css={{
-                      visibility: showValidationTip ? 'visible' : 'hidden',
-                      opacity: showValidationTip ? 1 : 0,
-                      width: '140px',
-                      height: '100px',
-                      backgroundColor: '#555',
-                      color: '#fff',
-                      textAlign: 'center',
-                      padding: '5px 0',
-                      borderRadius: '6px',
-                      position: 'absolute',
-                      zIndex: 30,
-                      bottom: '44%',
-                      left: '78%',
-                      marginLeft: '-60px',
-                      transition: 'opacity 0.3s',
-                      '&::after': css({
-                        content: '""',
-                        position: 'absolute',
-                        top: '100%',
-                        left: '35%',
-                        marginLeft: '-5px',
-                        borderWidth: '5px',
-                        borderStyle: 'solid',
-                        borderColor: '#555 transparent transparent transparent',
-                      }),
-                    }}
-                  >
-                    <p
-                      css={{
-                        ...tooltipText,
-                        textDecoration: !validation.minChar
-                          ? 'line-through'
-                          : 'none',
-                      }}
-                    >
-                      Char min 4
-                    </p>
-                    <p
-                      css={{
-                        ...tooltipText,
-                        textDecoration: !validation.maxChar
-                          ? 'line-through'
-                          : 'none',
-                      }}
-                    >
-                      Char max 8
-                    </p>
-                    <p
-                      css={{
-                        ...tooltipText,
-                        textDecoration: !validation.noSpace
-                          ? 'line-through'
-                          : 'none',
-                      }}
-                    >
-                      no space char
-                    </p>
-                  </div>
                 </div>
               </>
             )}

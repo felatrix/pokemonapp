@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import Image from '../../components/base/image';
 import Button from '../../components/base/button';
@@ -46,6 +47,8 @@ const Catch = ({ data }) => {
   // eslint-disable-next-line no-unused-vars
   const { state } = useAppContext();
 
+  const router = useRouter();
+
   useEffect(() => {
     setCurrentPokemonDisplay(listPokeMonCatch[0]);
   }, []);
@@ -79,9 +82,10 @@ const Catch = ({ data }) => {
 
   const catchPokemonClick = () => {
     //generate random bollean with 0.5 probabilities
-    var random_boolean = Math.random() < 1;
-    setIsSuccesCatch(random_boolean);
-    setCatchSceneShow(true);
+    // var random_boolean = Math.random() < 1;
+    // setIsSuccesCatch(random_boolean);
+    // setCatchSceneShow(true);
+    router.push(`/detail/${currentPokemonDisplay.name}`);
   };
 
   return (
@@ -174,7 +178,7 @@ const Catch = ({ data }) => {
         }}
       >
         <Button
-          text={'Catch This Pokemon'}
+          text={'Look This Pokemon Details'}
           onClick={() => catchPokemonClick()}
         ></Button>
         <Button
