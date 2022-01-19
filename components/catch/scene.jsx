@@ -22,7 +22,7 @@ const CatchScene = ({
   40%  { transform: translateY(-100px); }
   60%  { transform: translateY(-150px); }
   80%  { transform: translateY(-180px); }
-  100% { transform: translateY(-210px); }`;
+  100% { transform: translateY(-190px); }`;
 
   const { state, dispatch } = useAppContext();
 
@@ -119,9 +119,9 @@ const CatchScene = ({
               />
               <Image
                 // eslint-disable-next-line no-undef
-                url={`${process.env.PUBLIC_URL}/images/pokeball.gif`}
+                url={`${process.env.PUBLIC_URL}/images/pokeball.png`}
                 styleCss={{
-                  width: '350px',
+                  width: '100px',
                   animation: `${bounceAnimation} 2s ease`,
                   animationIterationCount: 1,
                 }}
