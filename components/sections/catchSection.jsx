@@ -91,6 +91,9 @@ const Catch = ({ data }) => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.5 }}
+      css={{
+        overflow:'hidden'
+      }}
     >
       {listPokeMonCatch && listPokeMonCatch.length > 0 ? (
         <div
