@@ -1,0 +1,17 @@
+{
+    "theme_color": "#000000",
+    "background_color": "#ffffff",
+    "display": "standalone",
+    "scope": "/",
+    "start_url": "/",
+    "name": "Pokemon App",
+    "short_name": "pokemon",
+    "description": "TPokemonApp",
+    "icons": [
+      {
+        "src": "/pokeball.png",
+        "type": "image/png",
+        "size":"512x512"
+      }
+    ]
+  }
