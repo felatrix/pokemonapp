@@ -12,7 +12,6 @@ import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
-  console.log(router);
   const footerCss = {
     maxWidth: '560px',
     margin: 'auto',
@@ -43,6 +42,7 @@ const Footer = () => {
     alignItems: 'center',
     cursor: 'pointer',
     width: '80px',
+    transition: 'all 1s easy-in-out',
     '& p': css({
       margin: '0',
       marginTop: '5px',

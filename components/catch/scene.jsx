@@ -80,13 +80,14 @@ const CatchScene = ({
   return (
     <div
       css={{
-        width: '100vw',
+        width: '101vw',
         height: '100vh',
         backgroundColor: 'white',
         position: 'fixed',
         top: '0',
         left: '-8px',
         zIndex: '20',
+        background: '#f0f8ffdb',
       }}
     >
       <div

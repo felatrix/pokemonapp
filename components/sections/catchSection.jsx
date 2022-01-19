@@ -27,6 +27,8 @@ import { SolarSystemLoading } from 'react-loadingg';
 
 import { useAppContext } from '../../contexts/AppContext';
 
+import { motion } from 'framer-motion';
+
 const Catch = ({ data }) => {
   const bounceAnimation = keyframes`0%   { transform: translateY(0); }
   50%  { transform: translateY(-20px); }
@@ -85,7 +87,11 @@ const Catch = ({ data }) => {
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
       {listPokeMonCatch && listPokeMonCatch.length > 0 ? (
         <div
           css={{
@@ -142,9 +148,11 @@ const Catch = ({ data }) => {
                         <p
                           css={{
                             fontSize: '12px',
+                            whiteSpace: 'pre-wrap',
+                            textTransform: 'capitalize',
                           }}
                         >
-                          {data.name}
+                          {data.name.replace(/-/g, ' ')}
                         </p>
                         <p
                           css={{
@@ -182,7 +190,7 @@ const Catch = ({ data }) => {
           onClick={() => refreshCatchList()}
         ></Button>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
