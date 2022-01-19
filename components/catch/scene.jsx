@@ -8,6 +8,7 @@ import Image from '../base/image';
 import Button from '../base/button';
 import Input from '../base/input';
 import ValidationTip from './validationTip';
+import { MdCatchingPokemon } from 'react-icons/md';
 
 import { useAppContext } from '../../contexts/AppContext';
 
@@ -117,15 +118,20 @@ const CatchScene = ({
                 url={currentPokemon?.sprites.front_default}
                 styleCss={{ width: '250px' }}
               />
-              <Image
-                // eslint-disable-next-line no-undef
-                url={`${process.env.PUBLIC_URL}/images/pokeball.png`}
-                styleCss={{
-                  width: '100px',
+              <div
+                css={{
                   animation: `${bounceAnimation} 2s ease`,
                   animationIterationCount: 1,
                 }}
-              />
+              >
+                <MdCatchingPokemon
+                  size={250}
+                  color="#882D17"
+                  style={{
+                    width: '100px',
+                  }}
+                />
+              </div>
             </>
           ) : (
             <>
