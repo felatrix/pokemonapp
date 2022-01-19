@@ -6,8 +6,9 @@ export const initialState = {pokemon:[]};
         case 'init_stored': 
             return action.value;
         case 'ADD_POKEMON':
-            console.log(action.pokemon)
             return {...state,pokemon:[...state.pokemon,action.pokemon]}
+        case 'REMOVE_POKEMON':
+            return {...state,pokemon:action.pokemon}
         default:
             throw new Error();
       }

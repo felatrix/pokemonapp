@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 import Image from '../../components/base/image';
 import Button from '../../components/base/button';
@@ -24,9 +25,9 @@ import client from '../../utils/graphql/apollo-client';
 
 import { SolarSystemLoading } from 'react-loadingg';
 
-import CatchScene from '../../components/catch/scene';
-
 import { useAppContext } from '../../contexts/AppContext';
+
+import { motion } from 'framer-motion';
 
 const Catch = ({ data }) => {
   const bounceAnimation = keyframes`0%   { transform: translateY(0); }
@@ -40,11 +41,11 @@ const Catch = ({ data }) => {
   const [refreshFetch, setRefreshFetch] = useState(false);
   const [listPokeMonCatch, setListPokemonCatch] = useState(results);
   const [currentPokemonDisplay, setCurrentPokemonDisplay] = useState(null);
-  const [catchSceneShow, setCatchSceneShow] = useState(false);
-  const [isSuccesCatch, setIsSuccesCatch] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const { state } = useAppContext();
+
+  const router = useRouter();
 
   useEffect(() => {
     setCurrentPokemonDisplay(listPokeMonCatch[0]);
@@ -79,13 +80,18 @@ const Catch = ({ data }) => {
 
   const catchPokemonClick = () => {
     //generate random bollean with 0.5 probabilities
-    var random_boolean = Math.random() < 1;
-    setIsSuccesCatch(random_boolean);
-    setCatchSceneShow(true);
+    // var random_boolean = Math.random() < 1;
+    // setIsSuccesCatch(random_boolean);
+    // setCatchSceneShow(true);
+    router.push(`/detail/${currentPokemonDisplay.name}`);
   };
 
   return (
-    <div>
+    <motion.div
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ delay: 0.5 }}
+    >
       {listPokeMonCatch && listPokeMonCatch.length > 0 ? (
         <div
           css={{
@@ -142,9 +148,11 @@ const Catch = ({ data }) => {
                         <p
                           css={{
                             fontSize: '12px',
+                            whiteSpace: 'pre-wrap',
+                            textTransform: 'capitalize',
                           }}
                         >
-                          {data.name}
+                          {data.name.replace(/-/g, ' ')}
                         </p>
                         <p
                           css={{
@@ -174,7 +182,7 @@ const Catch = ({ data }) => {
         }}
       >
         <Button
-          text={'Catch This Pokemon'}
+          text={'Look This Pokemon Details'}
           onClick={() => catchPokemonClick()}
         ></Button>
         <Button
@@ -182,17 +190,7 @@ const Catch = ({ data }) => {
           onClick={() => refreshCatchList()}
         ></Button>
       </div>
-      {catchSceneShow ? (
-        <CatchScene
-          currentPokemon={currentPokemonDisplay}
-          backToCatch={() => setCatchSceneShow(false)}
-          isCatch={isSuccesCatch}
-          backToCollection={() => setCatchSceneShow(false)}
-        />
-      ) : (
-        ''
-      )}
-    </div>
+    </motion.div>
   );
 };
 

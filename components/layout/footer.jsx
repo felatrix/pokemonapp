@@ -5,7 +5,6 @@ import { css } from '@emotion/react';
 // eslint-disable-next-line no-unused-vars
 import Image from '../base/image';
 
-import { FiHelpCircle } from 'react-icons/fi';
 import { MdCatchingPokemon } from 'react-icons/md';
 import { BiCollection } from 'react-icons/bi';
 
@@ -19,7 +18,7 @@ const Footer = () => {
     height: '100px',
     display: 'flex',
     flexDirection: 'row',
-    justifyContent: 'space-between',
+    justifyContent: 'space-evenly',
     alignItems: 'center',
     padding: '15px 15px',
     backgroundColor: '#ccd0d3',
@@ -41,7 +40,9 @@ const Footer = () => {
     justifyContent: 'start',
     height: '100%',
     alignItems: 'center',
+    cursor: 'pointer',
     width: '80px',
+    transition: 'all 1s easy-in-out',
     '& p': css({
       margin: '0',
       marginTop: '5px',
@@ -54,16 +55,19 @@ const Footer = () => {
     <div css={footerContainerCss}>
       <div css={footerCss}>
         <div css={footerIconCss} onClick={() => router.push('/collections')}>
-          <BiCollection size={30} color="#0a8bfb" />
+          <BiCollection
+            size={30}
+            color={router.asPath === '/collections' ? '#0a8bfb' : ''}
+          />
           <p>Collections</p>
         </div>
         <div css={footerIconCss}>
-          <MdCatchingPokemon size={30} onClick={() => router.push('/')} />
+          <MdCatchingPokemon
+            size={30}
+            onClick={() => router.push('/')}
+            color={router.asPath === '/' ? '#0a8bfb' : ''}
+          />
           <p>Catch</p>
-        </div>
-        <div css={footerIconCss}>
-          <FiHelpCircle size={30} />
-          <p>Help</p>
         </div>
       </div>
     </div>

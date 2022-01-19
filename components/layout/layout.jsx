@@ -8,17 +8,27 @@ import Footer from './footer';
 
 const Layout = ({ children }) => {
   const bodyContainerCss = {
-    minHeight: '100vh',
-    maxWidth: '560px',
     margin: 'auto',
     backgroundColor: 'white',
-    padding: '70px 15px',
+    width: '100%',
   };
 
   return (
     <>
       <Navbar />
-      <div css={bodyContainerCss}>{children}</div>
+      <div css={bodyContainerCss}>
+        <div
+          css={{
+            maxWidth: '560px',
+            margin: 'auto',
+            minHeight: '100vh',
+            padding: '70px 15px',
+            boxShadow: '0 0 48px 0 rgb(0 0 0 / 20%)',
+          }}
+        >
+          {children}
+        </div>
+      </div>
       <Footer />
     </>
   );
