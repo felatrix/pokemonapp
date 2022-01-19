@@ -3,7 +3,6 @@ import React from 'react';
 import Head from 'next/head';
 import { GET_LIST } from '../utils/graphql/queries/pokemon';
 import client from '../utils/graphql/apollo-client';
-import getRandomInt from '../utils/graphql/randomNumber';
 
 import '../styles/Home.module.css';
 
@@ -32,7 +31,7 @@ export async function getServerSideProps() {
     variables: {
       limit: 10,
       //maximal offset from pokeapi is 1117
-      offset: getRandomInt(0, 1117),
+      offset: 2,
     },
     query: GET_LIST,
     ssrMode: true,
