@@ -117,6 +117,7 @@ const CatchScene = ({
                 styleCss={{ width: '250px' }}
               />
               <Image
+                // eslint-disable-next-line no-undef
                 url={`${process.env.PUBLIC_URL}/images/pokeball.gif`}
                 styleCss={{
                   width: '350px',

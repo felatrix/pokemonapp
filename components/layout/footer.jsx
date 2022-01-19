@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 
 const Footer = () => {
   const router = useRouter();
+  console.log(router);
   const footerCss = {
     maxWidth: '560px',
     margin: 'auto',
@@ -59,11 +60,15 @@ const Footer = () => {
           <p>Collections</p>
         </div>
         <div css={footerIconCss}>
-          <MdCatchingPokemon size={30} onClick={() => router.push('/')} />
+          <MdCatchingPokemon
+            size={30}
+            onClick={() => router.push('/')}
+            color="#0a8bfb"
+          />
           <p>Catch</p>
         </div>
         <div css={footerIconCss}>
-          <FiHelpCircle size={30} />
+          <FiHelpCircle size={30} color="#0a8bfb" />
           <p>Help</p>
         </div>
       </div>

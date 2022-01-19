@@ -374,7 +374,7 @@ const DetailPokemon = ({ query }) => {
           currentPokemon={detailPokemon}
           backToCatch={() => router.push('/')}
           isCatch={isSuccesCatch}
-          backToCollection={() => setCatchSceneShow(false)}
+          backToCollection={() => router.push('/collections')}
         />
       ) : (
         ''

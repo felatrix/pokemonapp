@@ -25,8 +25,6 @@ import client from '../../utils/graphql/apollo-client';
 
 import { SolarSystemLoading } from 'react-loadingg';
 
-import CatchScene from '../../components/catch/scene';
-
 import { useAppContext } from '../../contexts/AppContext';
 
 const Catch = ({ data }) => {
@@ -41,8 +39,6 @@ const Catch = ({ data }) => {
   const [refreshFetch, setRefreshFetch] = useState(false);
   const [listPokeMonCatch, setListPokemonCatch] = useState(results);
   const [currentPokemonDisplay, setCurrentPokemonDisplay] = useState(null);
-  const [catchSceneShow, setCatchSceneShow] = useState(false);
-  const [isSuccesCatch, setIsSuccesCatch] = useState(false);
 
   // eslint-disable-next-line no-unused-vars
   const { state } = useAppContext();
@@ -186,16 +182,6 @@ const Catch = ({ data }) => {
           onClick={() => refreshCatchList()}
         ></Button>
       </div>
-      {catchSceneShow ? (
-        <CatchScene
-          currentPokemon={currentPokemonDisplay}
-          backToCatch={() => setCatchSceneShow(false)}
-          isCatch={isSuccesCatch}
-          backToCollection={() => setCatchSceneShow(false)}
-        />
-      ) : (
-        ''
-      )}
     </div>
   );
 };
